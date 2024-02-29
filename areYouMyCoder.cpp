@@ -1,12 +1,17 @@
 // Hello! This is a program that is in search of it's coder! are you their coder? run or read the code to find out!
 
-#include <iostream>
+
+#include <iostream> // allows us to use the cin and cout
+#include <chrono>  // this_thread::sleep_for
+#include <thread> // chrono::seconds
+
 
 using namespace std;
 
 int main()
 {
  
+    
     //The name and age of the person who coded this.
     string coderName = "Alyson";    
     int coderAge = 500;
@@ -18,14 +23,17 @@ int main()
     //This is called a boolean data type. these are either true or false. ours is set to false because we don't know if the user is our coder yet!
     bool coderFound = false;
     
+    cout << "Starting"<<endl;
+
     // This is a while loop. This program will not stop asking for the users name and age until they have found their coder!
-    while(coderFound = false) {
+   while(coderFound == false) {
 
 
         // Program introduces itself and asks user for their name
         cout << "I am in search of my coder! please enter your name and age so I can determine if you are them!\nName:" << endl;
         // the user's input is then assigned to the string variable "name"
         cin >> name;
+
 
         //asks the user for their age
         cout << "Age:" << endl;
@@ -56,9 +64,13 @@ int main()
             coderFound = true;
         } else { // else if age and name don't match the coder was not found and the program will start over again. 
 
-            cout << "Alas! you are not my coder! I must search on! ;(" << endl ;
+            cout << "Alas! you are not my coder! I must search on! ;(\nI will start back up in 10 seconds\n I will need a couple seconds to regain my strength... \n__________________________________________________\n" << endl ;
 
+            //This pauses the code's run through for 10 seconds. 
+            this_thread::sleep_for(chrono::seconds(10));
+             
         }
+         
     }
 
 }
